@@ -1,0 +1,32 @@
+#menu-container {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:-100px;
+    background-color:rgba(0, 0, 0, 0.90);
+    z-index:999;
+    padding:1em 2em;
+
+    #menu-close {
+        h2 {
+            text-align:left;
+        }
+    }
+
+    h1, h2 {
+        color:$color-light;
+    }
+
+    a:hover > h1, a:hover > h2 {
+        color:$color-tan;
+    }
+
+    #menu-options {
+        height:80%;
+        @extend %flexbox;
+        @include align-items(center);
+        @include justify-content(space-around);
+        @include flex-direction(column);
+    }
+}

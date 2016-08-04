@@ -1,0 +1,142 @@
+{
+    "coffee": {
+        "name": "Coffee",
+        "description": "Here at JavaSipt, we pride ourselves on the quality of our beans. Our small staff personally travels to co-ops around the world to select the best possible sources. We roast in-house after you order to ensure you always receive the freshest beans.",
+        "items": {
+            "costa-rica-la-minita": {
+                "name": "Costa Rica La Minita",
+                "srcThumb":  "/costaricalm.jpg",
+                "srcActual": "/costaricalm.png",
+                "description": "With a consistent cupping score of 92 and higher, La Manita is often nominated one of the best coffees in the world. It has undertones of dark chocolate, with hints of lemon and flowers behind it, and the aftertaste lingers fantastically.",
+                "price": "14",
+                "specs": {
+                    "region": "Tarrazu",
+                    "aromas": "Lemon, cocoa",
+                    "notes": "Floral, dark chocolate"
+                }
+            },
+            "ethiopia-halo-bariti": {
+                "name": "Ethiopia Halo Bariti",
+                "srcThumb": "/ethiopiahb.jpg",
+                "srcActual": "/ethiopiahb.png",
+                "description": "This coffee is from the brand new Halo Bariti co-op south of the Yirgacheffe region. The coffee is creamy with a sweet, blueberry flavor. While typical fruit coffees end with an earthy note, this one ends with a sweet creamy flavor. Other notes include lavender, rose, and raspberry.",
+                "price": "14",
+                "specs": {
+                    "region": "Yirgacheffe",
+                    "aromas": "Whisky, sandalwood",
+                    "notes": "Blueberry, sweet bourbon whisky"
+                }
+            },
+            "ethiopia-kochere": {
+                "name": "Ethiopia Kochere",
+                "srcThumb": "/ethiopiak.jpg",
+                "srcActual": "/ethiopiak.png",
+                "description": "Another coffee near the Yirgacheffe region, the Kochere is a light, floral bean with a tea-like aroma. Notes are reminiscent of lemon and peach tea, with some hints of oranges and melon. This is one of our lighter and more floral coffees, and makes for a great iced coffee as well as a balanced, refreshing hot cup.",
+                "price": "17",
+                "specs": {
+                    "region": "Yirgacheffe",
+                    "aromas": "Rose flowers, tea",
+                    "notes": "Lemon, orange, white tea"
+                }
+            },
+            "guatemala-antigua-hunapu": {
+                "name": "Guatemala Antigua Hunapu",
+                "srcThumb": "/guatemalaah.jpg",
+                "srcActual": "/guatemalaah.png",
+                "description": "From the slopes of Antigua Valley comes this fresh bean grown in wonderful volcanic soils. The aromas include pear, cherries, and rum, while the flavors range from caramel and dark chocolate to apple and lime.",
+                "price": "15",
+                "specs": {
+                    "region": "Antigua Valley",
+                    "aromas": "Pear, cherries, rum",
+                    "notes": "Caramel, dark chocolate, apple"
+                }
+            },
+            "guatemala-candelaria": {
+                "name": "Guatemala Candelaria",
+                "srcThumb": "/guatemalac.jpg",
+                "srcActual": "/guatemalac.png",
+                "description": "The Candelaria co-op is another group based in Antigua, providing a slightly different take on rich Guatemalan coffee. These beans offer aromas of plum, chocolate, and blood orange. The front notes are molasses and citrus, while the sip ends with a sweet milk chocolate.",
+                "price": "17",
+                "specs": {
+                    "region": "Antigua Valley",
+                    "aromas": "Plum, chocolate",
+                    "notes": "Molasses, sweet milk chocolate, citrus"
+                }
+            },
+            "honduras-las-capucas": {
+                "name": "Honduras Las Capucas",
+                "srcThumb": "/honduraslc.jpg",
+                "srcActual": "/honduraslc.png",
+                "description": "The first thing you'll notice is how exceptionally smooth this coffee is. It has rich flavors of toffee, milk chocolate, butter, and apples, and the silky body carries a brown sugar sweetness. The finish is creamy with notes of pecan and molasses.",
+                "price": "15",
+                "specs": {
+                    "region": "Copan",
+                    "aromas": "Brown sugar, apples",
+                    "notes": "Toffee, milk chocolate, pecan, molasses"
+                }
+            }
+        }
+    },
+    "gear": {
+        "name": "Gear",
+        "description": "With a team of highly experienced and involved professionals, we have developed connections with many popular brands. Using this relationship, we can provide a wide selection of gear at the best prices you'll find.",
+        "items": {
+            "aeropress": {
+                "name": "Aeropress",
+                "srcThumb":  "/aeropress.jpg",
+                "srcActual": "/aeropress.png",
+                "description": "The Aeropress is a unique brewing tool that utilizes pressure and total immersion of the grinds to extract the most possible flavor from the beans. Due to the fine filtration and shorter brewing time, the Aeropress results in a much less acidic cup of coffee. By using a smaller grind, it is possible to brew espresso-style coffee with this tool.",
+                "price": "25"
+            },
+            "baratza-encore": {
+                "name": "Baratza Encore",
+                "srcThumb": "/encore.jpg",
+                "srcActual": "/encore.png",
+                "description": "The Baratza Encore is one of the best entry level burr grinders on the market. The grinder can adjust from fine espresso all the way to coarse french press, and the conical burrs ensure a uniform grind at any level. The hopper is designed to keep beans pushing against the burrs at all times, while the burrs funnel grinds through to avoid buildup.",
+                "price": "130"
+            },
+            "baratza-virtuoso": {
+                "name": "Baratza Virtuoso",
+                "srcThumb": "/virtuoso.jpg",
+                "srcActual": "/virtuoso.png",
+                "description": "In the mid-range of burr grinders sits the Baratza Virtuoso. With more precise burrs than the Encore, the Virtuoso offers a top level grind consistency while still being fairly low cost. The system also allows users to control the speed of the motor, letting you sacrifice some grind speed for an even better grind.",
+                "price": "230"
+            },
+            "bonavita-kettle": {
+                "name": "Bonavita Kettle",
+                "srcThumb": "/bonavita.jpg",
+                "srcActual": "/bonavita.png",
+                "description": "The Bonavita Kettle is one of the only electric gooseneck kettles on the market that features variable temperature control. With an accuracy of 1&deg;F, this kettle allows you to keep water at the perfect temperature for any brewing method. Other features include a timer function, and the ability to maintain a temperature for as long as you need.",
+                "price": "75"
+            },
+            "chemex": {
+                "name": "Chemex",
+                "srcThumb": "/chemex.jpg",
+                "srcActual": "/chemex.png",
+                "description": "The Chemex is generally regarded as one of the best and most well-designed brewing tools available. It utilizes a pour-over method in which the water continuously passes through coffee grinds until it reaches the tip of the filter. The result is a full extraction of what the beans have to offer while never extracting too much.",
+                "price": "45"
+            },
+            "hario-kettle": {
+                "name": "Hario Kettle",
+                "srcThumb": "/hariokettle.jpg",
+                "srcActual": "/hariokettle.png",
+                "description": "If you want a stovetop gooseneck kettle, the Hario is the way to go. The handle is designed to make pouring feel natural and comfortable, while the tip of the gooseneck is just the right angle to keep water flowing smoothly at any pour speed. In it's price range, there is no alternative to the Hario.",
+                "price": "45"
+            },
+            "kalita-wave": {
+                "name": "Kalita Wave",
+                "srcThumb": "/kalita.jpg",
+                "srcActual": "/kalita.png",
+                "description": "The Kalita Wave is one of the more unique pour-over tools available. Rather than funnel water to a large hole, the Kalita has three small holes in the flat base. This results in a slower extraction, and leaves the grinds immersed for a longer period of time. This will produce a much different cup than something like the V60.",
+                "price": "25"
+            },
+            "v60-copper": {
+                "name": "V60 - Copper",
+                "srcThumb": "/v60copper.jpg",
+                "srcActual": "/v60copper.png",
+                "description": "If any pour-over method is considered the standard, it's the V60. Used in coffee shops everywhere, the V60 can make fantastic cups of coffee from nearly any type of bean. The copper-plated body keeps the water hot as it passes through, and looks bloody gorgeous doing it.",
+                "price": "45"
+            }
+        }
+    }
+}

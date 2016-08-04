@@ -1,0 +1,27 @@
+/*---Normalize Styles---*/
+html, body, div, ul, li, h1, h2, h3, h4, a, p, img, button {
+	margin:0;
+	padding:0;
+	border:0;
+	line-height:1em;
+	font-weight:400;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	     -o-box-sizing:border-box;
+	        box-sizing:border-box;
+	vertical-align:top;
+
+	@include transition(font-size 0.3s ease-in, padding 0.3s ease-in);
+	//@include transition(padding 0.5s ease-in);
+	color:$color-brown;
+}
+div, h1, h2, h3, h4, a, p {text-align:center;}
+body {overflow:auto;}
+li {list-style-type:none}
+a {text-decoration:none}
+input, select {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	     -o-box-sizing:border-box;
+	        box-sizing:border-box;
+}

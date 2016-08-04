@@ -1,0 +1,308 @@
+//
+//  Flexbox properties
+//
+@mixin flexbox {
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:-ms-flexbox;
+    display:flex;
+}
+
+%flexbox {@include flexbox;}
+
+@mixin flex-direction($value:row) {
+    @if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+    -webkit-flex-direction:$value;
+    -moz-flex-direction:$value;
+    -ms-flex-direction:$value;
+    flex-direction:$value;
+}
+
+@mixin flex-wrap($value: nowrap) {
+	-webkit-flex-wrap: $value;
+	-moz-flex-wrap: $value;
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else {
+		-ms-flex-wrap: $value;
+	}
+	flex-wrap: $value;
+}
+
+@mixin justify-content($value: flex-start) {
+	@if $value == flex-start {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+	} @else if $value == flex-end {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+	} @else if $value == space-between {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute;
+	} @else {
+		-webkit-box-pack: $value;
+		-ms-flex-pack: $value;
+	}
+	-webkit-justify-content: $value;
+	-moz-justify-content: $value;
+	justify-content: $value;
+}
+
+@mixin align-items($value: stretch) {
+	@if $value == flex-start {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+	} @else if $value == flex-end {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+	} @else {
+		-webkit-box-align: $value;
+		-ms-flex-align: $value;
+	}
+	-webkit-align-items: $value;
+	-moz-align-items: $value;
+	align-items: $value;
+}
+
+@mixin flex-basis($value: auto) {
+	-webkit-flex-basis: $value;
+	-moz-flex-basis: $value;
+	-ms-flex-preferred-size: $value;
+	flex-basis: $value;
+}
+
+@mixin flex-shrink($int: 1) {
+	-webkit-flex-shrink: $int;
+	-moz-flex-shrink: $int;
+	-ms-flex-negative: $int;
+	flex-shrink: $int;
+}
+
+//
+//  transition expressions
+//
+@mixin transition($transitions...) {
+    $allTransitions: ();
+    @each $transition in $transitions {
+        $allTransitions: append($allTransitions, $transition, comma)
+    }
+    transition: $allTransitions;
+    -moz-transition: $allTransitions;
+    -ms-transition: $allTransitions;
+    -o-transition: $allTransitions;
+    -webkit-transition: $allTransitions;
+}
+
+//
+//  Media query properties
+//  Credit to Eduardo Boucas at CSS-Tricks
+//
+@mixin media($conditions...) {
+  @for $i from 1 through length($conditions) {
+    $conditions: set-nth($conditions, $i, parse-expression(nth($conditions, $i)));
+  }
+
+  $branches: get-query-branches($conditions);
+  $query: '';
+
+  @each $branch in $branches {
+    @if (str-length($query) != 0) {
+      $query: $query + ', ';
+    }
+
+    $query: $query + $branch;
+  }
+
+  @media #{$query} {
+    @content;
+  }
+}
+
+@function get-query-branches($expressions) {
+  $result: '';
+  $has-groups: false;
+
+  // Getting initial snapshot and looking for groups
+  @each $expression in $expressions {
+    @if (str-length($result) != 0) {
+      $result: $result + ' and ';
+    }
+
+    @if (type-of($expression) == 'string') {
+      $result: $result + $expression;
+    } @else if (type-of($expression) == 'list') {
+      $result: $result + nth($expression, 1);
+      $has-groups: true;
+    } @else {
+      @warn '#{$expression} is not a valid expression.';
+    }
+  }
+
+  // If we have groups, we have to create all possible combinations
+  @if $has-groups {
+    @each $expression in $expressions {
+      @if (type-of($expression) == 'list') {
+        $first: nth($expression, 1);
+
+        @each $member in $expression {
+          @if ($member != $first) {
+            @each $partial in $result {
+              $result: join($result, str-replace-first($first, $member, $partial));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @return $result;
+}
+
+@function parse-expression($expression) {
+  $operator: '';
+  $value: '';
+  $element: '';
+  $result: '';
+  $is-width: true;
+
+  @if (type-of($expression) != 'string') {
+    @warn 'Expression with type `#{type-of($expression)}` detected, string expected.';
+  }
+
+  // Separating the operator from the rest of the expression
+  @if (str-slice($expression, 2, 2) == '=') {
+    $operator: str-slice($expression, 1, 2);
+    $value: str-slice($expression, 3);
+  } @else {
+    $operator: str-slice($expression, 1, 1);
+    $value: str-slice($expression, 2);
+  }
+
+  // Checking what type of expression we're dealing with
+  @if map-has-key($breakpoints, $value) {
+    $result: map-get($breakpoints, $value);
+  } @else if map-has-key($media-expressions, $expression) {
+    $result: map-get($media-expressions, $expression);
+    $is-width: false;
+  } @else {
+    $result: to-number($value);
+  }
+
+  @if ($is-width) {
+    $unit: unit($result);
+    $interval: 0;
+
+    @if (map-has-key($unit-intervals, $unit)) {
+      $interval: map-get($unit-intervals, $unit);
+    } @else {
+      @warn 'Unknown unit: #{$unit}';
+    }
+
+    @if ($operator == '>') {
+      $element: '(min-width: #{$result + $interval})';
+    } @else if ($operator == '<') {
+      $element: '(max-width: #{$result - $interval})';
+    } @else if ($operator == '>=') {
+      $element: '(min-width: #{$result})';
+    } @else if ($operator == '<=') {
+      $element: '(max-width: #{$result})';
+    } @else {
+      @warn '#{$expression} is missing an operator.';
+    }
+  } @else {
+    $element: $result;
+  }
+
+  @return $element;
+}
+
+@function str-replace-first($search, $replace, $subject) {
+  $search-start: str-index($subject, $search);
+
+  @if $search-start == null {
+    @return $subject;
+  }
+
+  $result: str-slice($subject, 0, $search-start - 1);
+  $result: $result + $replace;
+  $result: $result + str-slice($subject, $search-start + str-length($search));
+
+  @return $result;
+}
+
+@function to-number($string) {
+  // Matrices
+  $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+  $numbers:  0   1   2   3   4   5   6   7   8   9;
+
+  // Result
+  $result: 0;
+  $divider: 0;
+  $minus: false;
+
+  // Looping through all characters
+  @for $i from 1 through str-length($string) {
+    $character: str-slice($string, $i, $i);
+    $index: index($strings, $character);
+
+
+    @if $character == '-' {
+      $minus: true;
+    }
+
+    @else if $character == '.' {
+      $divider: 1;
+    }
+
+    @else {
+      @if type-of($index) != 'number' {
+        $result: if($minus, $result * -1, $result);
+        @return _length($result, str-slice($string, $i));
+      }
+
+      $number: nth($numbers, $index);
+
+      @if $divider == 0 {
+        $result: $result * 10;
+      }
+
+      @else {
+        // Move the decimal dot to the left
+        $divider: $divider * 10;
+        $number: $number / $divider;
+      }
+
+      $result: $result + $number;
+    }
+  }
+
+  @return if($minus, $result * -1, $result);
+}
+
+@function _length($number, $unit) {
+  $strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
+  $units:   1px  1cm  1mm  1%  1ch  1pica  1in  1em  1rem  1pt  1pc  1ex  1vw  1vh  1vmin  1vmax;
+  $index: index($strings, $unit);
+
+  @if type-of($index) != 'number' {
+    @warn 'Unknown unit `#{$unit}`.';
+    @return false;
+  }
+
+  @return $number * nth($units, $index);
+}

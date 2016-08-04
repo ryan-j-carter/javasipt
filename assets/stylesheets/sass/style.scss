@@ -1,0 +1,82 @@
+/*---Base scss file to merge all stylesheets and format to css---*/
+
+@import 'utils/_variables';
+@import 'utils/_mixins';
+
+@import 'base/_normalize';
+@import 'base/_typography';
+
+body {
+    background-color:$color-light;
+}
+
+a > h1, a > h2 {
+    transition:opacity 0.3s, color 0.3s;
+}
+
+a:hover > h1, a:hover > h2 {
+    color:$color-tan;
+}
+
+#header {
+    width:100%;
+    height:374px;
+    background-image:url("/javasipt/assets/img/coffee_cup_header.png");
+    background-position:center;
+
+    #title {
+        text-align:center;
+        line-height:374px;
+        vertical-align:middle;
+        text-shadow:2px 2px 1px $color-dark;
+        color:$color-orange;
+    }
+}
+
+.lock-scroll {
+    overflow:hidden;
+}
+
+.container {
+    padding:1em 2em;
+
+    #nav {
+        @extend %flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        @include flex-direction(column);
+        padding-bottom:1em;
+    }
+}
+
+.button {
+    display:inline-block;
+    background-color:$color-orange;
+    color: $color-light;
+    padding:0.5em 1em;
+    cursor:pointer;
+    text-align:center;
+}
+.button:hover {
+    opacity:0.85;
+}
+.button:active {
+    opacity:1;
+}
+
+.hidden {
+    display:none;
+}
+.invisible {
+    opacity:0;
+    position:absolute;
+}
+
+@import 'views/_menu-container';
+@import 'views/_home';
+@import 'views/_category';
+@import 'views/_product';
+@import 'views/_cart';
+@import 'views/_checkout';
+
+@import 'views/_media.scss';

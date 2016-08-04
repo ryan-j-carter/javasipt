@@ -1,0 +1,37 @@
+<div id="product">
+    <h1>{{product.info.name}}</h1>
+    <div id="product-info">
+        <div id="product-img"><img ng-src="{{product.src}}"/></div>
+        <div id="product-details">
+            <p>{{product.info.description}}</p>
+
+            <div id="product-specs">
+                <ul>
+                    <li ng-repeat="(key,spec) in product.info.specs">
+                        <span class="spec">{{key}}:</span>{{spec}}
+                    </li>
+                </ul>
+            </div>
+
+            <h2 id="product-price">{{product.info.price | currency}}</h2>
+            <div id="add-to-cart" ng-controller="CartController as cart">
+                <h4>Quantity</h4>
+                <select ng-model="product.quantity"
+                ng-options="n for n in [1,2,3,4,5,6,7,8,9,10]"></select>
+                <div class="button" ng-click="cart.addToCart({
+                    name: product.info.name,
+                    price: product.info.price,
+                    quantity: product.quantity,
+                    src: product.src,
+                    category: product.category,
+                    key: product.key
+                })">
+                    Add to Cart
+                    <div id="success" ng-show="cart.success">&#10004; Added!</div>
+                    <div id="fail" ng-show="cart.fail">&#10008; Only 10 of each</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

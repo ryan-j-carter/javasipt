@@ -1,0 +1,76 @@
+#product {
+    h1 {margin-bottom:0.5em;}
+    #product-info {
+        @extend %flexbox;
+        @include justify-content(center);
+        @include flex-wrap(wrap);
+
+        #product-img {
+            @include flex-basis(200px);
+            margin:0 2em 2em 2em;
+            @include transition(flex-basis 0.5s);
+            img {
+                max-width:100%;
+                height:auto;
+                -webkit-filter:drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+                filter:drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+
+
+            }
+        }
+
+        #product-details {
+            p {
+                margin-bottom:1.2em;
+                line-height:1.5em;
+                letter-spacing:0.03em;
+            }
+
+            #product-specs {
+                margin-bottom:1.2em;
+                ul {
+                    display:inline-block;
+                    text-align:left;
+                    li {
+                        margin:5px 0;
+                    }
+                }
+
+                .spec {
+                    text-transform:capitalize;
+                    display:inline-block;
+                    font-weight:600;
+                    min-width:4.2em;
+                }
+            }
+
+            #product-price {
+                margin-bottom:0.2em;
+            }
+
+            #add-to-cart {
+                h4 {
+                    margin-bottom:0.4em;
+                }
+                select {
+                    display:block;
+                    width:2.5em;
+                    margin:0 auto 2em auto;
+                }
+
+                .button {
+                    position:relative;
+                    #success, #fail {
+                        position:absolute;
+                        top:-1.5em;
+                        left:-50%; right:-50%;
+                        text-align:center;
+                        white-space:nowrap;
+                    }
+                    #success {color:green;}
+                    #fail {color:red;}
+                }
+            }
+        }
+    }
+}

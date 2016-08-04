@@ -1,0 +1,12 @@
+<div class="form-group">
+    <h3 class="form-group-label"><strong>{{groupLabel}}</strong></h3>
+    <div class="form-row">
+        <div class="form-col">
+            <select ng-model="shippingObject.shipMethod" required>
+                <option value="">Select a shipping speed</option>
+                <option value="priority">Priority (3-4 days) - {{shippingObject.shipCost.priority | currency}}</option>
+                <option value="nextDay">Next Day - {{shippingObject.shipCost.nextDay | currency}}</option>
+            </select>
+        </div>
+    </div>
+</div>

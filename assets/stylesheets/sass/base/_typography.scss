@@ -1,0 +1,22 @@
+/*---Font families, sizes, spacing, etc.---*/
+#header {
+    #title {
+        font:$h1-small $title-font;
+        letter-spacing:5px;
+    }
+}
+
+div, ul, li, p, button {font:$text-small $text-font;}
+
+h1 {font-size: $h1-small; font-family: $h1-font;}
+h2 {font-size: $h2-small; font-family: $h2-font;}
+h3 {font-size: $h3-small; font-family: $h3-font;}
+h4, select, input {font-size: $h4-small; font-family: $h4-font;}
+
+.icon {font-family: $menu-font;}
+
+#menu-container h1 {font:$menu-small $menu-font;}
+
+.item-name {font-weight:600;}
+
+.cart-item-remove {font-size:14px;}

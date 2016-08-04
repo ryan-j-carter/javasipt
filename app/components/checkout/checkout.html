@@ -1,0 +1,32 @@
+<div id="checkout">
+    <h1>Checkout</h1>
+    <form novalidate name="orderForm" id="checkout-form"
+          ng-submit="orderForm.$valid && checkout.submit()">
+
+        <address-fields
+            bind="checkout.shipping"
+            label="'Shipping Address'"
+            billing="false">
+        </address-fields>
+
+        <address-fields
+            bind="checkout.billing"
+            label="'Billing Address'"
+            billing="sameBilling">
+        </address-fields>
+
+        <card-fields
+            bind="checkout.card"
+            label="'Credit Card'">
+        </card-fields>
+
+        <shipping-fields
+            bind="checkout"
+            label="'Shipping Method'">
+        </shipping-fields>
+
+        <button type="submit" class="button">Place Order</button>
+    </form>
+
+    <states-datalist></states-datalist>
+</div>

@@ -1,0 +1,11 @@
+<!--Home page view-->
+    <div id="intro">
+        <p class="line" ng-repeat="line in home.intro">{{line}}</p>
+    </div>
+    <div id="product-types">
+        <div class="product-type" ng-repeat="(key, product) in home.products">
+            <a ui-sref="category({category:key})"><h1>{{product.name}}</h1></a>
+            <div class="hr-div"></div>
+            <p>{{product.description}}</p>
+        </div>
+    </div>

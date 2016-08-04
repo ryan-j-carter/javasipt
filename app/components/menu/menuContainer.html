@@ -1,0 +1,14 @@
+<div id="menu-container" ng-show="menu.show">
+    <a id="menu-close" ng-click="menu.show = false; bodyClass=null" href><h2><span class="icon">&#10005;</span>Close</h2></a>
+    <div id="menu-options">
+        <div class="option">
+            <a ui-sref="home" ng-click="menu.show = false; bodyClass=null"><h1>Home</h1></a>
+        </div>
+        <div class="option" ng-repeat="(key, product) in menu.products">
+            <a ng-click="menu.show = false; $root.bodyClass=null" ui-sref="category({category:key})" href><h1>{{product.name}}</h1></a>
+        </div>
+        <div class="option">
+            <a ng-click="menu.show = false; bodyClass=null" ui-sref="cart"><h1>Cart</h1></a>
+        </div>
+    </div>
+</div>

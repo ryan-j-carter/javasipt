@@ -1,0 +1,29 @@
+<div id="cart">
+    <h1>Shopping Cart</h1>
+    <ul id="cart-contents">
+        <div id="cart-empty" ng-hide="cart.contents.length">
+            <h3>Suh dude!</h3>
+            <h4>Your cart is empty...</h4>
+        </div>
+        <li class="cart-item" ng-repeat="product in cart.contents">
+            <div class="cart-item-img">
+                <img ng-src="{{product.src}}" ui-sref="product({category:product.category, key:product.key})"/>
+            </div>
+
+            <div class="cart-item-info">
+                <h3 class="cart-item-name">{{product.name}}</h3>
+                <div class="cart-item-quantity">
+                    <select ng-model="product.quantity"
+                    ng-options="n for n in [1,2,3,4,5,6,7,8,9,10]"
+                    ng-change="cart.update(product, {{product.quantity}})"></select>
+                </div>
+                <h4 class="cart-item-price">{{product.price | currency}}</h4>
+                <div class="cart-item-remove"><a ng-click="cart.remove(product)">Remove</a></div>
+            </div>
+        </li>
+    </ul>
+    <h4 id="subtotal" ng-show="cart.contents.length"><span>Subtotal: </span>{{cart.subtotal() | currency}}</h4>
+    <div id="checkout-btn">
+        <div class="button" ng-show="cart.contents.length" ui-sref="checkout">Checkout</div>
+    </div>
+</div>
