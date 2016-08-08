@@ -1,5 +1,7 @@
 # javasipt
 
+Viewable at http://ryancarter.webfactional.com/javasipt
+
 Conceptual storefront site for a coffee roasting company. 
 
 Site structure is intended to make it easy to add more products or product types over time. Currently uses JSON to store information, but the $http.get() can easily be adapted to larger database requests.
