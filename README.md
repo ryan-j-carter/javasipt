@@ -1,6 +1,6 @@
 # javasipt
 
-Viewable at http://ryancarter.webfactional.com/javasipt
+Viewable at http://ryancarterj.com/javasipt
 
 Conceptual storefront site for a coffee roasting company. 
 
