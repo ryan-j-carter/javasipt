@@ -1,7 +1,9 @@
 # javasipt
 
-Mock storefront for a coffee roasting company. Product structure is intended to make it easy to add more products as well as product types.
+Conceptual storefront site for a coffee roasting company. 
 
-Written entirely in AngularJS to explore the use of many views in a Single Page Application. Components are designed to be abstract whenever possible so they can be reused and dynamic with the information presented.
+Site structure is intended to make it easy to add more products or product types over time. Currently uses JSON to store information, but the $http.get() can easily be adapted to larger database requests.
 
-Styling is done using SASS files that are structured to mirror the Angular/HTML components, making it easy to locate everything that effects that component.
+The goal of this project is to create a large-scale app as an SPA using AngularJS. The site is broken down into views that will display any information given to them. This allows the abstracted "product" view to dynamically display any product it's given. The URL also dynamically updates to the specific category and product being displayed.
+
+Similarly, the styling is broken down into components using SASS to mirror the app directory. This allows a developer to easily work on the HTML, CSS and Angular for each individual component or view.
