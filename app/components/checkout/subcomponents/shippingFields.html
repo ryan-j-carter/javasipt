@@ -1,12 +1,17 @@
 <div class="form-group">
-    <h3 class="form-group-label"><strong>{{groupLabel}}</strong></h3>
+    <h3 class="form-group-label"><strong>{{label}}</strong></h3>
     <div class="form-row">
         <div class="form-col">
-            <select ng-model="shippingObject.shipMethod" required>
-                <option value="">Select a shipping speed</option>
-                <option value="priority">Priority (3-4 days) - {{shippingObject.shipCost.priority | currency}}</option>
-                <option value="nextDay">Next Day - {{shippingObject.shipCost.nextDay | currency}}</option>
+            <h4 class="form-label">Method</h4>
+            <select ng-model="ship.method" id="ship" required>
+                <option value="">Choose</option>
+                <option value="priority">3-Day - {{ship.cost.priority | currency}}</option>
+                <option value="nextDay">1-Day - {{ship.cost.nextDay | currency}}</option>
             </select>
+        </div>
+        <div class="form-col">
+            <h4 class="form-label">Email</h4>
+            <input type="email" ng-model="email" required>
         </div>
     </div>
 </div>

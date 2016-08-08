@@ -31,15 +31,24 @@ app
             templateUrl: '/javasipt/app/components/checkout/checkout.html',
             controller: 'CheckoutController',
             controllerAs: 'checkout'
+        })
+        .state('order', {
+            url: '/order',
+            templateUrl: '/javasipt/app/components/order/order.html',
+            controller: 'OrderController',
+            controllerAs: 'order'
         });
 }])
 .controller('HomeController', ['products', function(products) {
-    var ctrl = this;
+    var home = this;
+    this.products = [];
     this.intro = ["Welcome to JavaSipt!",
                   "Something something introduction text.",
                   "Hope you find something you like!"];
     products.getData().then(function(data) {
-        ctrl.products = data.data;
+        for (var item in data.data) {
+            home.products.push(data.data[item]);
+        }
     });
 }])
 .controller('CategoryController', ['products', '$stateParams', function(products, $stateParams) {
@@ -60,4 +69,20 @@ app
         prod.info = data.data[prod.category].items[prod.key];
         prod.src = "/javasipt/assets/img/" + prod.category + "/actual" + prod.info.srcActual;
     });
+}])
+.controller('OrderController', ['cart', 'userData', function(cart, userData) {
+    this.user = userData.get();
+    this.estimatedArrival = "";
+
+    var date = new Date();
+    if (this.user.ship.method == "priority") {
+        date.setDate(date.getDate() + 3);
+        this.estimatedArrival += date.toLocaleDateString() + " - ";
+        date.setDate(date.getDate() + 2);
+        this.estimatedArrival += date.toLocaleDateString();
+    }
+    else {
+        date.setDate(date.getDate() + 1);
+        this.estimatedArrival += date.toLocaleDateString();
+    }
 }]);

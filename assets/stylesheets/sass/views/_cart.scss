@@ -66,3 +66,21 @@
         text-align:right;
     }
 }
+
+.cart-list {
+    min-width:260px;
+    max-width:520px;
+    margin:0 auto 0.5em auto;
+    text-align:left;
+    li {
+        border-bottom:1px solid $color-brown;
+        padding:0.2em 0;
+        span {
+            display:inline-block;
+            margin-right:1%;
+            text-align:left;
+        }
+        span:first-child {width:60%;}
+        span:not(:first-child) {width:15%;}
+    }
+}

@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
         <title>JavaSipt</title>
-        <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400,600" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="assets/stylesheets/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/lib/css/angular-carousel.css"/>
 
     </head>
     <body class="{{bodyClass}}">
@@ -28,13 +29,17 @@
 
         <script type="text/javascript" src="assets/lib/js/angular.min.js"></script>
         <script type="text/javascript" src="assets/lib/js/angular-ui-router.js"></script>
+        <script type="text/javascript" src="assets/lib/js/angular-touch.min.js"></script>
+        <script type="text/javascript" src="assets/lib/js/angular-carousel.min.js"></script>
         <script type="text/javascript" src="app/app.module.js"></script>
         <script type="text/javascript" src="app/app.routes.js"></script>
+        <script type="text/javascript" src="app/shared/constants.js"></script>
         <script type="text/javascript" src="app/shared/directives.js"></script>
+        <script type="text/javascript" src="app/shared/services.js"></script>
         <script type="text/javascript" src="app/components/menu/menuControllers.js"></script>
         <script type="text/javascript" src="app/components/menu/menuDirectives.js"></script>
         <script type="text/javascript" src="app/components/cart/cartController.js"></script>
-        <script type="text/javascript" src="app/components/cart/cartDirective.js"></script>
+        <script type="text/javascript" src="app/components/cart/cartDirectives.js"></script>
         <script type="text/javascript" src="app/components/checkout/checkoutController.js"></script>
         <script type="text/javascript" src="app/components/checkout/checkoutDirectives.js"></script>
     </body>

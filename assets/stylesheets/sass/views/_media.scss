@@ -9,7 +9,7 @@
 
     #checkout-form {
         .form-group {
-            .form-group-label {
+            .form-group-label, #fill-billing {
                 width:80%;
             }
             .form-row {
@@ -24,6 +24,9 @@
     h2 {font-size:$h2-full;}
     h3 {font-size:$h3-full;}
     h4 {font-size:$h4-full;}
+    div, ul, li, p, button {font-size:$text-full;}
+
+    #carousel .slideshow {height:640px;}
 
     #cart {
         width:100%;
@@ -42,7 +45,7 @@
 
     #checkout-form {
         .form-group {
-            .form-group-label {
+            .form-group-label, #fill-billing {
                 width:448px;
             }
             .form-row {

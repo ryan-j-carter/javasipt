@@ -1,7 +1,9 @@
 {
     "coffee": {
+        "key": "coffee",
         "name": "Coffee",
         "description": "Here at JavaSipt, we pride ourselves on the quality of our beans. Our small staff personally travels to co-ops around the world to select the best possible sources. We roast in-house after you order to ensure you always receive the freshest beans.",
+        "background": "/javasipt/assets/img/coffeebg.jpg",
         "items": {
             "costa-rica-la-minita": {
                 "name": "Costa Rica La Minita",
@@ -78,8 +80,10 @@
         }
     },
     "gear": {
+        "key": "gear",
         "name": "Gear",
         "description": "With a team of highly experienced and involved professionals, we have developed connections with many popular brands. Using this relationship, we can provide a wide selection of gear at the best prices you'll find.",
+        "background": "/javasipt/assets/img/gearbg.jpg",
         "items": {
             "aeropress": {
                 "name": "Aeropress",

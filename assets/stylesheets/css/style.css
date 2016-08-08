@@ -1,5 +1,5 @@
 /*---Base scss file to merge all stylesheets and format to css---*/
-.container #nav, #menu-container #menu-options, #product-types, .category .product-list, #product #product-info, #cart #cart-contents .cart-item .cart-item-info, #checkout-form .form-group .form-row {
+.container #nav, #menu-container #menu-options, #product-types, .category .product-list, #product #product-info, #cart #cart-contents .cart-item .cart-item-info, #checkout-form .form-group .form-row, #order #order-info {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -49,7 +49,7 @@ input, select {
   letter-spacing: 5px; }
 
 div, ul, li, p, button {
-  font: 16px "Raleway", sans-serif; }
+  font: 14px "Raleway", sans-serif; }
 
 h1 {
   font-size: 35px;
@@ -201,6 +201,43 @@ a:hover > h1, a:hover > h2 {
     height: 2px;
     margin: 0.1em 0 0.2em 0;
     background-color: #210F04; }
+
+#carousel {
+  position: relative;
+  margin: 1em auto 0 auto;
+  min-width: 260px;
+  max-width: 960px; }
+  #carousel .slideshow {
+    height: 400px;
+    margin: 0 auto; }
+    #carousel .slideshow li {
+      min-height: max-content;
+      min-height: -webkit-max-content;
+      width: 100%; }
+      #carousel .slideshow li .image {
+        width: 100%;
+        height: auto; }
+      #carousel .slideshow li .info {
+        position: absolute;
+        width: 100%;
+        top: 5em; }
+        #carousel .slideshow li .info a {
+          width: 100%; }
+        #carousel .slideshow li .info a h1 {
+          color: #fffaf5;
+          text-shadow: 1px 1px #210F04; }
+        #carousel .slideshow li .info a:hover > h1 {
+          color: #bf955a; }
+  #carousel #carousel-indicator {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    top: 10em; }
+    #carousel #carousel-indicator span {
+      color: #bf955a;
+      font-size: 20px; }
+    #carousel #carousel-indicator span.active {
+      color: #fffaf5; }
 
 .category .category-name {
   margin-bottom: 1em; }
@@ -385,12 +422,29 @@ a:hover > h1, a:hover > h2 {
   #cart #checkout-btn {
     text-align: right; }
 
+.cart-list {
+  min-width: 260px;
+  max-width: 520px;
+  margin: 0 auto 0.5em auto;
+  text-align: left; }
+  .cart-list li {
+    border-bottom: 1px solid #492202;
+    padding: 0.2em 0; }
+    .cart-list li span {
+      display: inline-block;
+      margin-right: 1%;
+      text-align: left; }
+    .cart-list li span:first-child {
+      width: 60%; }
+    .cart-list li span:not(:first-child) {
+      width: 15%; }
+
 #checkout h1 {
   margin-bottom: 0.3em; }
 
 #checkout-form .form-group {
   margin-bottom: 1.2em; }
-  #checkout-form .form-group .form-group-label {
+  #checkout-form .form-group .form-group-label, #checkout-form .form-group #fill-billing {
     min-width: 260px;
     margin: 0 auto 0.4em auto;
     text-align: left; }
@@ -403,7 +457,12 @@ a:hover > h1, a:hover > h2 {
     -moz-justify-content: flex-start;
     justify-content: flex-start; }
     #checkout-form .form-group .form-row .form-col {
-      text-align: left; }
+      text-align: left;
+      /*
+       * Outline for invalid fields
+       * Only appears after user attempts to submit form,
+       *  or leaves a field incomplete
+       */ }
       #checkout-form .form-group .form-row .form-col .form-label {
         text-align: left; }
       #checkout-form .form-group .form-row .form-col input {
@@ -413,14 +472,49 @@ a:hover > h1, a:hover > h2 {
       #checkout-form .form-group .form-row .form-col select {
         padding: 0.4em;
         line-height: 1.5em; }
+      #checkout-form .form-group .form-row .form-col #ship {
+        width: 100%; }
+      #checkout-form .form-group .form-row .form-col input.ng-dirty.ng-invalid:not(:focus),
+      #checkout-form .form-group .form-row .form-col input.ng-touched.ng-invalid:not(:focus),
+      #checkout-form .form-group .form-row .form-col select.ng-dirty.ng-invalid:not(:focus),
+      #checkout-form .form-group .form-row .form-col select.ng-touched.ng-invalid:not(:focus) {
+        outline: auto;
+        outline-color: red; }
     #checkout-form .form-group .form-row .form-col:not(.mini) {
       width: 100%; }
     #checkout-form .form-group .form-row .form-col:not(:first-child) {
       margin-left: 0.2em; }
     #checkout-form .form-group .form-row .form-col:not(:last-child) {
       margin-right: 0.2em; }
-#checkout-form input:focus + label {
-  border: 1px solid black; }
+#checkout-form h3 {
+  margin-bottom: 0.4em; }
+
+#order h1 {
+  margin-bottom: 0.4em; }
+#order #order-info {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 520px;
+  margin: 1em auto 0 auto; }
+  #order #order-info .order-group {
+    min-width: 50%;
+    padding: 0 0.7em 1em 0; }
+    #order #order-info .order-group h3 {
+      text-align: left; }
+#order .cost {
+  display: inline-block;
+  margin: 0.5em auto 0 auto; }
+  #order .cost h3 {
+    text-align: left;
+    margin-bottom: 0.2em; }
 
 /*---Modifications to improve UI on smaller devices/windows---*/
 @media (min-width: 320px) {
@@ -432,7 +526,7 @@ a:hover > h1, a:hover > h2 {
     -ms-flex-direction: row;
     flex-direction: row; }
 
-  #checkout-form .form-group .form-group-label {
+  #checkout-form .form-group .form-group-label, #checkout-form .form-group #fill-billing {
     width: 80%; }
   #checkout-form .form-group .form-row {
     width: 80%; } }
@@ -449,6 +543,12 @@ a:hover > h1, a:hover > h2 {
   h4 {
     font-size: 16px; }
 
+  div, ul, li, p, button {
+    font-size: 16px; }
+
+  #carousel .slideshow {
+    height: 640px; }
+
   #cart {
     width: 100%; }
     #cart #cart-contents .cart-item .cart-item-img {
@@ -464,7 +564,7 @@ a:hover > h1, a:hover > h2 {
       -ms-flex-preferred-size: 18%;
       flex-basis: 18%; }
 
-  #checkout-form .form-group .form-group-label {
+  #checkout-form .form-group .form-group-label, #checkout-form .form-group #fill-billing {
     width: 448px; }
   #checkout-form .form-group .form-row {
     width: 448px; } }

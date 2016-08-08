@@ -1,0 +1,7 @@
+<ul class="cart-list">
+    <li ng-repeat="item in cart">
+        <span><strong>{{item.name}}</strong></span>
+        <span>{{item.quantity}}</span>
+        <span>{{item.price | currency}}</span>
+    </li>
+</ul>

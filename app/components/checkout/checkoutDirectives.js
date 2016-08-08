@@ -3,27 +3,32 @@ app
     return {
         restrict: 'E',
         templateUrl: 'app/components/checkout/subcomponents/addressFields.html',
-        scope: {addressObject: '=bind', groupLabel: '=label', sameBilling: '=billing'}
+        scope: {
+            label: '=label',
+            address: '=address',
+            sameBilling: '=billing',
+            states: '=states'
+        }
     };
 })
 .directive('cardFields', function() {
     return {
         restrict: 'E',
         templateUrl: 'app/components/checkout/subcomponents/cardFields.html',
-        scope: {cardObject: '=bind', groupLabel: '=label'}
+        scope: {
+            label: '=label',
+            card: '=card'
+        }
     };
 })
 .directive('shippingFields', function() {
     return {
         restrict: 'E',
         templateUrl: 'app/components/checkout/subcomponents/shippingFields.html',
-        scope: {shippingObject: '=bind', groupLabel: '=label'}
-    };
-})
-.directive('statesDatalist', function() {
-    return {
-        restrict: 'E',
-        templateUrl: 'app/components/checkout/subcomponents/states.html',
-        replace:true
+        scope: {
+            label: '=label',
+            ship: '=ship',
+            email: '=email'
+        }
     };
 });

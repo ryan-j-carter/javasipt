@@ -1,32 +1,38 @@
 <div id="checkout">
     <h1>Checkout</h1>
-    <form novalidate name="orderForm" id="checkout-form"
-          ng-submit="orderForm.$valid && checkout.submit()">
+    <form name="checkout.orderForm" id="checkout-form" novalidate
+          ng-submit="checkout.submitForm()">
 
         <address-fields
-            bind="checkout.shipping"
             label="'Shipping Address'"
-            billing="false">
+            address="checkout.user.shipping"
+            billing="false"
+            states="checkout.states">
         </address-fields>
 
         <address-fields
-            bind="checkout.billing"
             label="'Billing Address'"
-            billing="sameBilling">
+            address="checkout.user.billing"
+            billing="checkout.sameBilling"
+            states="checkout.states">
         </address-fields>
 
         <card-fields
-            bind="checkout.card"
-            label="'Credit Card'">
+            label="'Credit Card'"
+            card="checkout.user.card">
         </card-fields>
 
         <shipping-fields
-            bind="checkout"
-            label="'Shipping Method'">
+            label="'Shipping Information'"
+            ship="checkout.user.ship"
+            email="checkout.user.email">
         </shipping-fields>
+
+        <cart-list cart="checkout.cart()"></cart-list>
+
+        <h3><strong>Subtotal:</strong>&nbsp;{{checkout.user.subtotal | currency}}</h3>
+        <h3><strong>Total:</strong>&nbsp;{{checkout.user.subtotal+checkout.user.ship.cost[checkout.user.ship.method] | currency}}</h3>
 
         <button type="submit" class="button">Place Order</button>
     </form>
-
-    <states-datalist></states-datalist>
 </div>

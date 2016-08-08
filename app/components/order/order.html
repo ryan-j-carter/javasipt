@@ -1,0 +1,44 @@
+<div id="order" ng-show="order.user.cart.length">
+    <h1>Thank you for your order!</h1>
+    <h3>An email confirmation will be sent to<strong> {{order.user.email}}</strong></h3>
+
+    <div id="order-info">
+        <div class="order-group">
+            <h3><strong>Shipping Address</strong></h3>
+            <h3>{{order.user.shipping.fname + " " + order.user.shipping.lname}}</h3>
+            <h3>{{order.user.shipping.address}}</h3>
+            <h3>{{order.user.shipping.city + ", " +
+                  order.user.shipping.state + " " +
+                  order.user.shipping.zip}}</h3>
+        </div>
+        <div class="order-group" ng-show="order.user.shipping != order.user.billing">
+            <h3><strong>Billing Address</strong></h3>
+            <h3>{{order.user.billing.fname + " " + order.user.billing.lname}}</h3>
+            <h3>{{order.user.billing.address}}</h3>
+            <h3>{{order.user.billing.city + ", " +
+                  order.user.billing.state + " " +
+                  order.user.billing.zip}}</h3>
+        </div>
+        <div class="order-group">
+            <h3><strong>Credit Card</strong></h3>
+            <h3>{{order.user.card.name}}</h3>
+            <h3>xxxxxxxxxxxx{{order.user.card.number.slice(-4)}}</h3>
+            <h3>{{order.user.card.month + "/" + order.user.card.year}}</h3>
+        </div>
+        <div class="order-group">
+            <h3><strong>Estimated Arrival</strong></h3>
+            <h3>{{order.estimatedArrival}}</h3>
+        </div>
+    </div>
+
+    <cart-list cart="order.user.cart"></cart-list>
+    <div class="cost">
+        <h3><strong>Subtotal:</strong>&nbsp;{{order.user.subtotal | currency}}</h3>
+        <h3><strong>Shipping:</strong>&nbsp;{{order.user.ship.cost[order.user.ship.method] | currency}}</h3>
+        <h3><strong>Total:</strong>&nbsp;{{order.user.subtotal+order.user.ship.cost[order.user.ship.method] | currency}}</h3>
+    </div>
+
+</div>
+<div ng-hide="order.user.cart.length">
+    <h2>Buy something to see this page ;)</h2>
+</div>

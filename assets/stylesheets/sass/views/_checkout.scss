@@ -3,7 +3,7 @@
 #checkout-form {
     .form-group {
         margin-bottom:1.2em;
-        .form-group-label {
+        .form-group-label, #fill-billing {
             min-width:260px;
             margin:0 auto 0.4em auto;
             text-align:left;
@@ -26,11 +26,26 @@
                     line-height:1.5em;
                     padding: 0.2em 0.3em;
                 }
-
                 select {
                     padding:0.4em;
                     line-height:1.5em;
                 }
+                #ship {width:100%;}
+
+                /*
+                 * Outline for invalid fields
+                 * Only appears after user attempts to submit form,
+                 *  or leaves a field incomplete
+                 */
+                input.ng-dirty.ng-invalid:not(:focus),
+                input.ng-touched.ng-invalid:not(:focus),
+                select.ng-dirty.ng-invalid:not(:focus),
+                select.ng-touched.ng-invalid:not(:focus) {
+                    outline:auto;
+                    outline-color:red;
+                }
+
+
             }
             .form-col:not(.mini) {
                 width:100%;
@@ -40,7 +55,5 @@
         }
     }
 
-    input:focus + label {
-        border:1px solid black;
-    }
+    h3 {margin-bottom:0.4em;}
 }

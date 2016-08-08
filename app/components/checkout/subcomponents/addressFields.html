@@ -1,41 +1,46 @@
 <div class="form-group">
-    <h3 class="form-group-label"><strong>{{groupLabel}}</strong></h3>
-    <input type="checkbox" ng-model="key" ng-change="sameBilling(key)" ng-show="sameBilling"/>
-    <span ng-show="sameBilling">Billing same as above</span>
+    <h3 class="form-group-label"><strong>{{label}}</strong></h3>
+    <div id="fill-billing" ng-show="sameBilling != false">
+        <input type="checkbox" ng-model="key" ng-change="sameBilling(key)"/>
+        Billing same as above
+    </div>
     <div class="form-row">
         <div class="form-col">
             <h4 class="form-label">First Name</h4>
-            <input type="text" ng-model="addressObject.fname" required
-                   ng-maxlength="20"/>
+            <input type="text" ng-model="address.fname" required
+                   maxlength="20"/>
         </div>
         <div class="form-col">
             <h4 class="form-label">Last Name</h4>
-            <input type="text" ng-model="addressObject.lname" required
-                   ng-maxlength="20"/>
+            <input type="text" ng-model="address.lname" required
+                   maxlength="20"/>
         </div>
     </div>
     <div class="form-row">
         <div class="form-col">
             <h4 class="form-label">Address</h4>
-            <input type="text" ng-model="addressObject.address" required
-                   ng-maxlength="60"/>
+            <input type="text" ng-model="address.address" required
+                   maxlength="60"/>
         </div>
     </div>
     <div class="form-row">
         <div class="form-col">
             <h4 class="form-label">City</h4>
-            <input type="text" ng-model="addressObject.city" required
-                   ng-maxlength="30"/>
+            <input type="text" ng-model="address.city" required
+                   maxlength="30"/>
         </div>
         <div class="form-col mini">
             <h4 class="form-label">State</h4>
-            <input list="states" ng-model="addressObject.state"
-                   maxlength="2" required/>
+            <select ng-model="address.state" required>
+                <option value=""></option>
+                <option ng-repeat="state in states"
+                        value="{{state.abbreviation}}">{{state.abbreviation}}</option>
+            </select>
         </div>
         <div class="form-col mini">
-            <h4 class="form-label">Zip Code</h4>
-            <input type="text" ng-model="addressObject.zip" class="zip"
-                   maxlength="5" required />
+            <h4 class="form-label">Zip</h4>
+            <input type="text" ng-model="address.zip"
+                   size="8" minlength="5" maxlength="5" required valid-number/>
         </div>
     </div>
 

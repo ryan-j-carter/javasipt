@@ -21,3 +21,46 @@
         background-color:$color-dark;
     }
 }
+
+#carousel {
+    position:relative;
+    margin:1em auto 0 auto;
+    min-width:260px;
+    max-width:960px;
+    .slideshow {
+        height:400px;
+        margin:0 auto;
+        li {
+            min-height:max-content;
+            min-height:-webkit-max-content;
+            width:100%;
+            .image {
+                width:100%;
+                height:auto;
+
+            }
+            .info {
+                position:absolute;
+                width:100%;
+                top:5em;
+
+                a {width:100%;}
+                a h1 {
+                    color:$color-light; text-shadow: 1px 1px $color-dark;
+                }
+                a:hover > h1 {color:$color-tan;}
+            }
+        }
+    }
+    #carousel-indicator {
+        position:absolute;
+        width:100%;
+        margin:0 auto;
+        top:10em;
+        span {
+            color:$color-tan;
+            font-size:20px;
+        }
+        span.active {color:$color-light;}
+    }
+}

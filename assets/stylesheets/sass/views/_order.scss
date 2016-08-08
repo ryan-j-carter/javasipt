@@ -1,0 +1,27 @@
+#order {
+    h1 {margin-bottom:0.4em;}
+    #order-info {
+        @extend %flexbox;
+        @include justify-content(flex-start);
+        @include flex-wrap(wrap);
+        width:100%;
+        max-width:520px;
+        margin:1em auto 0 auto;
+
+        .order-group {
+            min-width:50%;
+            padding:0 0.7em 1em 0;
+            h3 {
+                text-align:left;
+            }
+        }
+    }
+    .cost {
+        display:inline-block;
+        margin:0.5em auto 0 auto;
+        h3 {
+            text-align:left;
+            margin-bottom:0.2em;
+        }
+    }
+}
